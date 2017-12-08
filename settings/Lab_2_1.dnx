@@ -42,7 +42,7 @@
         <MultiCoreRunAll>1</MultiCoreRunAll>
     </Simulator>
     <DebugChecksum>
-        <Checksum>2828874980</Checksum>
+        <Checksum>4177333643</Checksum>
     </DebugChecksum>
     <JLinkDriver>
         <CStepIntDis>_ 0</CStepIntDis>
@@ -74,9 +74,10 @@
     </DisassembleMode>
     <Breakpoints2>
         <Bp0>_ 0 "EMUL_CODE" "{$PROJ_DIR$\main.c}.133.5" 0 0 1 "" 0 "" 0</Bp0>
-        <Bp1>_ 0 "EMUL_CODE" "{$PROJ_DIR$\light.c}.91.1" 0 0 1 "" 0 "" 0</Bp1>
-        <Bp2>_ 1 "EMUL_CODE" "{$PROJ_DIR$\main.c}.227.5" 0 0 1 "" 0 "" 0</Bp2>
-        <Count>3</Count>
+        <Bp1>_ 0 "EMUL_CODE" "{$PROJ_DIR$\light.c}.103.5" 0 0 1 "" 0 "" 0</Bp1>
+        <Bp2>_ 0 "EMUL_CODE" "{$PROJ_DIR$\main.c}.239.5" 0 0 1 "" 0 "" 0</Bp2>
+        <Bp3>_ 0 "EMUL_CODE" "{$PROJ_DIR$\main.c}.241.5" 0 0 1 "" 0 "" 0</Bp3>
+        <Count>4</Count>
     </Breakpoints2>
     <LogFile>
         <LoggingEnabled>_ 0</LoggingEnabled>

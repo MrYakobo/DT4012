@@ -166,33 +166,33 @@ void testDB(void){
 }
 
 void statistik(void){
-
     double rmax = -100000.0;
     double rmin = 1000000.0;
 
     double lmax = -10000.0;
     double lmin = 10000.0;
-//rmax: 2483.000000	rmin: 1684.000000lmax: 2047.000000	lmin: 1791.000000
-while(1){
-      lightMeasure();
-      double a = lightLeft();
-      double b = lightRight();
+    //rmax: 2483.000000	rmin: 1684.000000lmax: 2047.000000	lmin: 1791.000000
+    //lmax: 2047.000000	lmin: 1791.000000	rmax: 2165.000000	rmin: 1929.000000
+    while(1){
+        lightMeasure();
+        double a = lightLeft();
+        double b = lightRight();
 
-      if(a < lmin){
-          lmin = a;
-      }
-      if(a > lmax){
-          lmax = a;
-      }
-      if(b > rmax){
-          rmax = b;
-      }
-      if(b < rmin){
-          rmin = b;
-      }
+        if(a < lmin){
+            lmin = a;
+        }
+        if(a > lmax){
+            lmax = a;
+        }
+        if(b > rmax){
+            rmax = b;
+        }
+        if(b < rmin){
+            rmin = b;
+        }
 
-      printf("lmax: %f\tlmin: %f\nrmax: %f\trmin: %f", lmax, lmin, rmax, rmin);
-}
+        printf("lmax: %f\tlmin: %f\trmax: %f\trmin: %f\n", lmax, lmin, rmax, rmin);
+    }
 }
 
 void main(void){
@@ -200,40 +200,16 @@ void main(void){
 
     *AT91C_PMC_PCER = 0x8007800;      //Clock pin TC0,PIOA,PIOB,PIOC,PIOD
     
-    /*
-    ledInit();
-    initScreen();
-    initKeypad();
-    initServo();
-    initLight();
-    initTemperature();
-
-    clearScreen();
-    */
-    /*
-    initKeypad();
-    testKeypad();
-    */
-
+    // ledInit();
     // initScreen();
-    // clearScreen();
-    // testScreen();
-
+    // initKeypad();
+    // initServo();
+    // initLight();
     // initTemperature();
-    //   testTemperature();
-
-    //testDB();
     
-    //initLight();
+    initScreen();
+    clearScreen();
 
-    while(1){
-        lightMeasure();
-        printf("%f\t%f\n", lightLeft(), lightRight());
-    // printf("%f\n", lightDelta());
-    //printf("-------\n");
-      //delay_ms(10000);
-    }
-    
     while(1){
         switch(currentMode){
             case 0:

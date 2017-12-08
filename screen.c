@@ -95,13 +95,11 @@ void Write_Data_2_Display(unsigned char Data){
 
   *AT91C_PIOC_ODR = 0x3FC;  //make databus as input
 }
-
 void resetPointer(void){
   Write_Data_2_Display(0);
   Write_Data_2_Display(0);
   Write_Command_2_Display(0x24);
 }
-
 void initScreen(){
   *AT91C_PIOD_PER = 1;
   *AT91C_PIOD_CODR = 1;  //Clear Reset Display
@@ -139,7 +137,6 @@ void initScreen(){
   *AT91C_PIOC_OER = 0x80000; 
   *AT91C_PIOC_CODR = 0x80000;
 }
-
 void Init_Display_2(){
     *AT91C_PIOD_PER = 1;
     *AT91C_PIOD_PPUDR =1;
@@ -171,30 +168,43 @@ void Init_Display_2(){
     *AT91C_PIOC_OER = 0x80000; 
     *AT91C_PIOC_CODR = 0x80000;
 }
-
 void print_ascii(int h){
     Init_Display_2();
     Write_Data_2_Display(h);
     Write_Command_2_Display(0xC0);
 }
 
+int printedCharacters = 0;
+
 void clearScreen(){
-    for(int x = 0; x < 240; x++){
+    for(int x = 0; x < 40; x++){
         for(int y = 0; y < 128; y++){
             print_ascii(0x0); //skriver ut mellanslag på hela skärmen
         }
     }
+    printedCharacters = 0;
     resetPointer();
 }
+
 void printString(char str[]){
     //print to LCD screen
     int l = strlen(str);
     for(int i = 0; i < l; i++){
-        char c = str[i]-0x20;
-        print_ascii((int)c);
+        if(str[i] == '\n'){
+            for(int k = 0; k < 40-(printedCharacters%40); k++)
+                print_ascii(0);
+        }
+        else if(str[i] == '\t'){
+            for(int k = 0; k < 4; k++)
+                print_ascii(0);
+        }
+        else{
+            char c = str[i]-0x20;
+            print_ascii((int)c);
+            printedCharacters++;
+        }
     }
 }
-
 void printNumber(int n){ //OLD CODE: printNumber prints persistant
     char str[12];
     sprintf(str, "%d", n);

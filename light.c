@@ -41,25 +41,37 @@ void initLight(){
 int LIGHT_A = 0;
 int LIGHT_B = 0;
 
-void lightMeasure(){
-     ADC_READY = 0;
-	*AT91C_ADCC_IER = (1 << 24);
+void lightMeasureRight(){
+    ADC_READY = 0;
 	*AT91C_ADCC_CHER = (0x2);
 	*AT91C_ADCC_CR = (2);
+	*AT91C_ADCC_IER = (1 << 24);
 	
 	while(ADC_READY == 0){}
 	ADC_READY = 0;
 	*AT91C_ADCC_CHDR = (0x2);
+	*AT91C_ADCC_IDR = (1 << 24);
 	LIGHT_A = *AT91C_ADCC_LCDR & 0xfff;
-	
-	*AT91C_ADCC_IER = (1 << 24);
+}
+
+void lightMeasureLeft(){
+    ADC_READY = 0;
 	*AT91C_ADCC_CHER = (0x4);
 	*AT91C_ADCC_CR = (2);
+	*AT91C_ADCC_IER = (1 << 24);
 	
 	while(ADC_READY == 0){}
 	ADC_READY = 0;
 	*AT91C_ADCC_CHDR = (0x4);
+	*AT91C_ADCC_IDR = (1 << 24);
 	LIGHT_B = *AT91C_ADCC_LCDR & 0xfff;
+}
+
+void lightMeasure(){
+    // delay(4000);
+    lightMeasureLeft();
+    // delay(84);
+    lightMeasureRight();
 }
 
 void pollLight(void){
@@ -80,13 +92,15 @@ void pollLight(void){
 //lmax: 2047.000000	lmin: 1791.000000
 double lightLeft(void){
     //gör lite fancy ADC_Handler stuffs här med globala variabler
-    return 1.0-((LIGHT_A-1791.0)/256.0);
+    // return 1.0-((LIGHT_A-1791.0)/256.0);
+    return LIGHT_A;
 }
 
 //rmax: 2483.000000	rmin: 1684.000000
 double lightRight(void){
     //samma sak här
-    return (LIGHT_B-1684.0)/799.0;
+    // return (LIGHT_B-1684.0)/799.0;
+    return LIGHT_B;
 }
 
 double lightDelta(){
