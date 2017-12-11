@@ -1,4 +1,4 @@
-#::Encoding temperatures each minute for a week::
+# ::Encoding temperatures each minute for a week::
 
 We need `60*24*7 = 10080` entries, each which can encode "normal" temperatures with one decimal place.
 
