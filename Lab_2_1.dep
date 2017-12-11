@@ -1,278 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>2</fileVersion>
-    <fileChecksum>830727721</fileChecksum>
+    <fileChecksum>1989339369</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\Debug\Obj\screen.o</file>
-            <file>$PROJ_DIR$\servo.h</file>
-            <file>$PROJ_DIR$\system_sam3x.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\main3.o</file>
-            <file>$PROJ_DIR$\screen.h</file>
-            <file>$PROJ_DIR$\temperature.c</file>
-            <file>$PROJ_DIR$\test.c</file>
-            <file>$PROJ_DIR$\screen.c</file>
-            <file>$PROJ_DIR$\servo.c</file>
-            <file>$PROJ_DIR$\main.c</file>
-            <file>$PROJ_DIR$\startup_sam3x.c</file>
-            <file>$PROJ_DIR$\temperature.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main4.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main4.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\keypad.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\system_sam3x.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\cstartup.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\led.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\system_sam3x.o</file>
-            <file>$PROJ_DIR$\main2.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\exceptions.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\led.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
-            <file>$PROJ_DIR$\main4.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\test.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\exceptions.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_float_setup.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\temperature.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\light.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\delay.pbi</file>
             <file>$PROJ_DIR$\core_cmFunc.h</file>
-            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main4.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\light.o</file>
+            <file>$PROJ_DIR$\main4.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
             <file>$PROJ_DIR$\Debug\Obj\handlers.o</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
-            <file>$PROJ_DIR$\main3.c</file>
-            <file>$PROJ_DIR$\Debug\List\Lab_2_1.map</file>
-            <file>$TOOLKIT_DIR$\inc\c\time.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\delay.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\system_sam3x.__cstat.et</file>
-            <file>$PROJ_DIR$\system_sam3x.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\keypad.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\temperature.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\delay.pbi</file>
+            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
+            <file>$PROJ_DIR$\main2.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\exceptions.pbi</file>
             <file>$PROJ_DIR$\Debug\Obj\servo.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\handlers.pbi</file>
+            <file>$PROJ_DIR$\core_cm3.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
             <file>$PROJ_DIR$\Debug\Obj\temperature.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\startup_sam3x.o</file>
+            <file>$PROJ_DIR$\Debug\Exe\Lab_2_1.out</file>
+            <file>$PROJ_DIR$\Debug\Obj\handlers.pbi</file>
             <file>$TOOLKIT_DIR$\inc\c\time32.h</file>
             <file>$TOOLKIT_DIR$\lib\m7M_tl.a</file>
-            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
-            <file>$PROJ_DIR$\Debug\Obj\startup_sam3x.o</file>
             <file>$PROJ_DIR$\Debug\Obj\startup_sam3x.__cstat.et</file>
-            <file>$PROJ_DIR$\core_cm3.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_stdlib.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\servo.pbi</file>
-            <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
-            <file>$PROJ_DIR$\Debug\Obj\exceptions.o</file>
-            <file>$PROJ_DIR$\Debug\Exe\Lab_2_1.out</file>
-            <file>$PROJ_DIR$\Debug\Obj\main2.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\string.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\math.h</file>
             <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-            <file>$PROJ_DIR$\core_cmInstr.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\Lab_2_1.pbd</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\screen.pbi</file>
-            <file>$PROJ_DIR$\at91sam3x8.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\startup_sam3x.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_stdlib.h</file>
             <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
-            <file>$TOOLKIT_DIR$\config\linker\Atmel\SAM3X\SAM3X-EK\sam3x8-sram.icf</file>
-            <file>$PROJ_DIR$\Debug\Obj\keypad.o</file>
             <file>$PROJ_DIR$\Debug\Obj\light.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\cmsis_iar.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main3.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+            <file>$PROJ_DIR$\at91sam3x8.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\keypad.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\encode.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\screen.pbi</file>
+            <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
+            <file>$TOOLKIT_DIR$\inc\c\math.h</file>
+            <file>$PROJ_DIR$\core_cmInstr.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\encode.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\Lab_2_1.pbd</file>
+            <file>$TOOLKIT_DIR$\inc\c\string.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\exceptions.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\main2.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\startup_sam3x.pbi</file>
+            <file>$TOOLKIT_DIR$\config\linker\Atmel\SAM3X\SAM3X-EK\sam3x8-sram.icf</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
             <file>$PROJ_DIR$\Debug\Obj\test.pbi</file>
-            <file>$PROJ_DIR$\exceptions.h</file>
-            <file>$PROJ_DIR$\test.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\main3.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\cmsis_iar.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main3.o</file>
             <file>$TOOLKIT_DIR$\inc\c\iccarm_builtin.h</file>
-            <file>$PROJ_DIR$\keypad.h</file>
-            <file>$PROJ_DIR$\cstartup.s</file>
-            <file>$PROJ_DIR$\led.h</file>
-            <file>$PROJ_DIR$\light.h</file>
-            <file>$PROJ_DIR$\led.c</file>
-            <file>$PROJ_DIR$\delay.c</file>
-            <file>$PROJ_DIR$\handlers.c</file>
-            <file>$PROJ_DIR$\keypad.c</file>
-            <file>$PROJ_DIR$\handlers.h</file>
-            <file>$PROJ_DIR$\delay.h</file>
-            <file>$PROJ_DIR$\light.c</file>
-            <file>$PROJ_DIR$\exceptions.c</file>
             <file>$PROJ_DIR$\encodeTemperature.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\test.o</file>
+            <file>$PROJ_DIR$\test.h</file>
+            <file>$PROJ_DIR$\main3.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\main4.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\system_sam3x.pbi</file>
             <file>$PROJ_DIR$\Debug\Obj\encodeTemperature.o</file>
+            <file>$PROJ_DIR$\exceptions.h</file>
             <file>$PROJ_DIR$\Debug\Obj\encodeTemperature.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\screen.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\exceptions.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\led.pbi</file>
+            <file>$PROJ_DIR$\system_sam3x.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\led.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\system_sam3x.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\time.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
+            <file>$PROJ_DIR$\Debug\List\Lab_2_1.map</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_float_setup.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\delay.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\cstartup.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\system_sam3x.__cstat.et</file>
+            <file>$PROJ_DIR$\handlers.c</file>
+            <file>$PROJ_DIR$\led.h</file>
+            <file>$PROJ_DIR$\servo.h</file>
+            <file>$PROJ_DIR$\system_sam3x.c</file>
+            <file>$PROJ_DIR$\temperature.c</file>
+            <file>$PROJ_DIR$\temperature.h</file>
+            <file>$PROJ_DIR$\test.c</file>
+            <file>$PROJ_DIR$\keypad.h</file>
+            <file>$PROJ_DIR$\led.c</file>
+            <file>$PROJ_DIR$\exceptions.c</file>
+            <file>$PROJ_DIR$\keypad.c</file>
+            <file>$PROJ_DIR$\startup_sam3x.c</file>
+            <file>$PROJ_DIR$\cstartup.s</file>
+            <file>$PROJ_DIR$\delay.c</file>
+            <file>$PROJ_DIR$\delay.h</file>
+            <file>$PROJ_DIR$\encode.c</file>
+            <file>$PROJ_DIR$\handlers.h</file>
+            <file>$PROJ_DIR$\light.c</file>
+            <file>$PROJ_DIR$\encode.h</file>
+            <file>$PROJ_DIR$\light.h</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\screen.c</file>
+            <file>$PROJ_DIR$\screen.h</file>
+            <file>$PROJ_DIR$\servo.c</file>
+            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+            <file>$PROJ_DIR$\Debug\Obj\servo.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\float.h</file>
         </outputs>
         <file>
-            <name>$PROJ_DIR$\system_sam3x.c</name>
+            <name>$PROJ_DIR$\main4.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 41</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 21</file>
+                    <file> 54</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 16</file>
+                    <file> 2</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 66 42 69 25 61 74 64 67 51 62 73 81 33</file>
+                    <file> 78 28 64 26 1 24 62 42 43 15 34 47 49 0 68 3 25</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 69 64 42 51 25 67 33 66 61 74 62 73 81</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\temperature.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 45</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 30</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 42 69 25 61 74 64 67 51 62 73 81 33 66 36 17 52 90</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 61 90 69 67 62 25 51 64 66 36 74 33 73 81 17 42 52</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\test.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 27</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 78</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 82 4 11</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 82 4 11</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\screen.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 0</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 65</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 42 69 25 61 74 64 67 51 62 73 81 33 66 36 17 52 77 58 13 91</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 61 77 64 69 25 51 91 67 62 66 36 58 74 33 73 81 17 42 52 13</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\servo.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 43</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 53</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 42 69 25 61 74 64 67 51 62 73 81 33 66 36 17 52</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 51 33 61 52 73 81 25 74 69 66 36 64 67 62 42 17</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\main.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 76</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 18</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 59</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 42 69 25 61 74 64 67 51 62 73 81 33 66 36 17 52 4 91 11 82 85 1 90 84 80 39 46</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 73 81 85 4 80 51 33 61 25 11 90 74 69 66 36 91 82 1 84 39 64 67 62 17 46 42 52</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\startup_sam3x.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 50</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 49</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 68</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 66 79 51 69 25 61 74 64 67 62 73 81 33</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 25 51 69 67 79 33 64 66 62 61 74 73 81</file>
+                    <file> 24 25 28 15 26 43 34 68 64 42 1 78 62 0 47 49 3</file>
                 </tool>
             </inputs>
         </file>
@@ -281,63 +136,17 @@
             <outputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 57</file>
+                    <file> 39</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 42 69 25 61 74 64 67 51 62 73 81 33 66 36 17 52 39 46</file>
+                    <file> 64 26 1 24 62 42 43 15 34 47 49 0 28 68 3 25 67 21</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 52 69 39 25 74 73 51 33 81 61 66 36 64 67 62 42 17 46</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\main4.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 14</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 12</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 2 66 42 69 25 61 74 64 67 51 62 73 81 33 36 17 52</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 61 52 66 51 69 67 62 36 42 64 25 2 74 33 73 81 17</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\main3.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 3</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 75</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 42 69 25 61 74 64 67 51 62 73 81 33 66 36 17 52 39 46</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 64 69 39 52 51 61 67 62 25 66 36 74 33 73 81 17 46 42</file>
+                    <file> 25 26 67 1 62 47 15 0 49 24 28 68 42 43 34 64 3 21</file>
                 </tool>
             </inputs>
         </file>
@@ -346,67 +155,137 @@
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 38</file>
+                    <file> 69</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 70 19 40 55 35 71 20 31 18 0 43 49 21 45 27 48 34 47 54</file>
+                    <file> 41 73 71 35 38 7 29 65 4 6 59 14 18 66 17 51 99 11 22 32</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\cstartup.s</name>
-            <outputs>
-                <tool>
-                    <name>AARM</name>
-                    <file> 19</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\led.c</name>
+            <name>$PROJ_DIR$\encodeTemperature.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 20</file>
+                    <file> 56</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 24</file>
+                    <file> 58</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 24 70 33 1 3 62 61 42 43</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main3.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 48</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 46</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 42 69 25 61 74 64 67 51 62 73 81 33 66 36 17 52</file>
+                    <file> 64 26 1 24 62 42 43 15 34 47 49 0 28 68 3 25 67 21</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 64 69 52 51 61 67 62 66 36 25 74 33 73 81 42 17</file>
+                    <file> 42 26 67 25 15 24 43 34 1 28 68 62 0 47 49 3 21 64</file>
                 </tool>
             </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\delay.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 40</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 32</file>
-                </tool>
-            </outputs>
         </file>
         <file>
             <name>$PROJ_DIR$\handlers.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 35</file>
+                    <file> 7</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 20</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 64 26 1 24 62 42 43 15 34 47 49 0 28 68 3 25 89 94</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 15 0 24 1 89 47 49 62 26 28 68 94 42 43 34 25 64 3</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\system_sam3x.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 66</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 55</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 74</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 28 64 26 1 24 62 42 43 15 34 47 49 0</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 26 42 64 15 1 43 0 28 24 62 34 47 49</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\temperature.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 17</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 9</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 64 26 1 24 62 42 43 15 34 47 49 0 28 68 3 25 89 91</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 1 62 47 89 26 24 15 0 49 28 68 91 42 43 34 25 64 3</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\test.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 51</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -416,11 +295,61 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 42 69 25 61 74 64 67 51 62 73 81 33 66 36 17 52 91 85</file>
+                    <file> 82 97 80</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 51 33 61 25 91 73 81 74 69 66 36 85 64 67 62 52 42 17</file>
+                    <file> 80 97 82</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\led.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 65</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 63</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 64 26 1 24 62 42 43 15 34 47 49 0 28 68 3 25</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 42 26 25 15 24 43 34 28 68 1 62 0 47 49 64 3</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\exceptions.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 38</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 13</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 60</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 57</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 57</file>
                 </tool>
             </inputs>
         </file>
@@ -429,21 +358,93 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 71</file>
+                    <file> 29</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 15</file>
+                    <file> 8</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 42 69 25 61 74 64 67 51 62 73 81 33 66 36 17 52</file>
+                    <file> 64 26 1 24 62 42 43 15 34 47 49 0 28 68 3 25</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 52 64 69 51 61 67 62 66 36 25 74 33 73 81 42 17</file>
+                    <file> 25 42 26 15 24 43 34 28 68 1 62 0 47 49 64 3</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\startup_sam3x.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 18</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 40</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 23</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 28 57 15 26 1 24 62 42 43 34 47 49 0</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 1 15 26 43 57 0 42 28 34 24 62 47 49</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\cstartup.s</name>
+            <outputs>
+                <tool>
+                    <name>AARM</name>
+                    <file> 73</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\delay.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 71</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 10</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\encode.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 35</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 30</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 33 1 24 62 42 43 70</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 1 62 24 70 33 42 43</file>
                 </tool>
             </inputs>
         </file>
@@ -452,48 +453,94 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 31</file>
+                    <file> 4</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 72</file>
+                    <file> 27</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 42 69 25 61 74 64 67 51 62 73 81 33 66 36 17 52 60 29</file>
+                    <file> 64 26 1 24 62 42 43 15 34 47 49 0 28 68 3 25 33 70</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 29 69 60 25 74 73 51 33 81 61 52 66 36 64 67 62 42 17</file>
+                    <file> 70 26 33 1 62 47 15 0 49 24 25 28 68 42 43 34 64 3</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\exceptions.c</name>
+            <name>$PROJ_DIR$\main.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 23</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 55</file>
+                    <file> 6</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 28</file>
+                    <file> 16</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 45</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 79</file>
+                    <file> 64 26 1 24 62 42 43 15 34 47 49 0 28 68 3 25 97 89 80 82 94 77 91 76 93 52 67 21 101</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 79</file>
+                    <file> 94 97 93 42 26 24 1 15 80 91 67 43 34 28 68 89 82 77 76 52 101 62 0 47 49 25 64 3 21</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\screen.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 59</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 31</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 64 26 1 24 62 42 43 15 34 47 49 0 28 68 3 25 61 37 72 89</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 24 42 26 61 1 15 89 43 34 28 68 37 62 0 47 49 3 64 25 72</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\servo.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 14</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 100</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 64 26 1 24 62 42 43 15 34 47 49 0 28 68 3 25</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 15 0 24 25 47 49 1 62 26 28 68 42 43 34 64 3</file>
                 </tool>
             </inputs>
         </file>
@@ -502,29 +549,10 @@
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 56 38</file>
+                    <file> 19 69</file>
                 </tool>
             </outputs>
         </file>
-        <file>
-            <name>$PROJ_DIR$\encodeTemperature.c</name>
-            <outputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 96</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 77 25 61 74 64 67 17 39 46</file>
-                </tool>
-            </inputs>
-        </file>
-        <forcedrebuild>
-            <name>[MULTI_TOOL]</name>
-            <tool>ILINK</tool>
-        </forcedrebuild>
     </configuration>
     <configuration>
         <name>Release</name>

@@ -68,6 +68,56 @@ void testEncoding(void){
       else if(dec != test[i+2]){
         printf("Decoding failed: Expected %f, got %f\n", test[i+2], dec);
       }
-  } 
-  return 0;
+  }
+}
+
+void statistik(void){
+    double rmax = -100000.0;
+    double rmin = 1000000.0;
+
+    double lmax = -10000.0;
+    double lmin = 10000.0;
+    //rmax: 2483.000000	rmin: 1684.000000lmax: 2047.000000	lmin: 1791.000000
+    //lmax: 2047.000000	lmin: 1791.000000	rmax: 2165.000000	rmin: 1929.000000
+    while(1){
+        lightMeasure();
+        double a = lightLeft();
+        double b = lightRight();
+
+        if(a < lmin){
+            lmin = a;
+        }
+        if(a > lmax){
+            lmax = a;
+        }
+        if(b > rmax){
+            rmax = b;
+        }
+        if(b < rmin){
+            rmin = b;
+        }
+
+        printf("lmax: %f\tlmin: %f\trmax: %f\trmin: %f\n", lmax, lmin, rmax, rmin);
+    }
+}
+
+void testLinebreak(){
+  printString("Rad 1\nRad 2\nRad 3");
+  printString("\n");
+  printString("\n");
+  printString("Rad 5\n");
+  printString("looooooooooooooooooooooooooooooooooooooooooong word\nand another under");
+  print("\n");
+  print("Day | Min  | Max | Avg\n");
+  print("-------------------\n");
+  print(" ");
+  printNumber(1);
+  print(" | ");
+  printDouble(22.52);
+  print("| ");
+  printDouble(22.60);
+  print("| ");
+  printDouble(10.19);
+  print("| ");
+
 }

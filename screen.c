@@ -95,10 +95,15 @@ void Write_Data_2_Display(unsigned char Data){
 
   *AT91C_PIOC_ODR = 0x3FC;  //make databus as input
 }
-void resetPointer(void){
-  Write_Data_2_Display(0);
-  Write_Data_2_Display(0);
+
+void setPointer(int h){
+  Write_Data_2_Display(h);
+  Write_Data_2_Display(h);
   Write_Command_2_Display(0x24);
+}
+
+void resetPointer(void){
+    setPointer(0);
 }
 void initScreen(){
   *AT91C_PIOD_PER = 1;
@@ -173,12 +178,18 @@ void print_ascii(int h){
     Write_Data_2_Display(h);
     Write_Command_2_Display(0xC0);
 }
+void print_persistent(int h){
+    Init_Display_2();
+    Write_Data_2_Display(h-0x20);
+    Write_Command_2_Display(0xC4);
+}
 
 int printedCharacters = 0;
 
 void clearScreen(){
+    resetPointer();
     for(int x = 0; x < 40; x++){
-        for(int y = 0; y < 128; y++){
+        for(int y = 0; y < 20; y++){
             print_ascii(0x0); //skriver ut mellanslag på hela skärmen
         }
     }
@@ -210,6 +221,26 @@ void printString(char str[]){
         }
     }
 }
+
+int SPINNER_STATE = 0;
+char SPINNER_STR[] = "-\\|/";
+
+void spinner_begin(){
+    print(" "); //space
+}
+
+void spinner(){
+    print_persistent(SPINNER_STR[SPINNER_STATE]);
+    SPINNER_STATE = (SPINNER_STATE+1)%4;
+}
+
+void spinner_end(){ //prints space and decrements ADP
+    Write_Data_2_Display(0);
+    Write_Data_2_Display(0);
+    Write_Command_2_Display(0xC2);
+    printedCharacters--;
+}
+
 void printNumber(int n){ //OLD CODE: printNumber prints persistant
     char str[12];
     sprintf(str, "%d", n);

@@ -3,7 +3,10 @@
 #include "core_cm3.h"
 #include "stdlib.h"
 
+#include "delay.h"
 #include "handlers.h"
+
+int inited = 0;
 
 void initTemperature(void){
   *AT91C_PIOB_PER = (1<<25);//Enable pin25
@@ -23,10 +26,14 @@ void initTemperature(void){
   
   //Set burst to none
   //*(AT91C_BASE_TC0+AT91C_TC_BURST) = AT91C_TC_BURST_NONE;
-
+  inited = 1;
 }
 
 void measureTemp(void){
+    if(!inited){
+      printf("Du har glomt att kora initTemperature() din not");
+    }
+    else{
    *AT91C_TC0_IER = (1<<6); //Enable interrupts on LDRBS
 
    //PULSE
@@ -43,9 +50,10 @@ void measureTemp(void){
    delay(25);
    //END PULSE
 
-   delay(8000000); //typ 1.5 sekunder
+   delay(4000000); //typ 1.5 sekunder
    *AT91C_TC0_IER = (1<<6); //Enable interrupts on LDRBS (again)
    *AT91C_TC0_CCR  = AT91C_TC_SWTRG; //make a sw_reset in TC0_CCR0
+    }
 }
 
 double getTemperature(void){

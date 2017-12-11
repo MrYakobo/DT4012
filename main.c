@@ -17,6 +17,7 @@
 
 #include "test.h"
 #include <time.h>
+#include <float.h>
 
 // #include <stdio.h>
 
@@ -27,7 +28,7 @@ struct Entry {
 } entry;
 
 /*GLOBALS:*/
-int FAST_MODE = 0;
+int FAST_MODE = 1;
 int currentMode = 0;
 
 #define DB_MAX 10080
@@ -43,7 +44,9 @@ void print(char str[]){
 
 void printMenu(){
     clearScreen();
-    print("Welcome to the Weather Station 0.1\nChoose one of the following:\n1) Record data\n2) View logged data\n3) Find the sun\n4) Alarm at high/low temperatures\n5) Toggle fast mode");
+    print("Welcome to the Weather Station 0.1\nChoose one of the following:\n1) Record data\n2) View logged data\n3) Find the sun\n4) Alarm at high/low temperatures\n5) Toggle modes (current mode: ");
+    print(FAST_MODE ? "FAST" : "NORMAL");
+    print(")");
 }
 
 //waits until user inputs something
@@ -100,38 +103,90 @@ void mainMenu(){
     currentMode = pollInput();
 }
 
+void viewLog(){
+    print("\n");
+    print("Day | Min  | Max  | Avg\n");
+    print("----------------------\n");
+
+    for(int i = 0; i < SUMMARY_MAX; i++){
+        if(summary[i].average == 0){
+            break;
+        }
+    
+        print("  ");
+        printNumber(i+1);
+        print(" | ");
+        printDouble(summary[i].max);
+        print("| ");
+        printDouble(summary[i].min);
+        print("|");
+        printDouble(summary[i].average);
+        print("|\n");
+    }
+
+    print("\nPress 0 to exit");
+    delay_ms(1000); //debouncing from previous zero-click
+    pollButton(11);
+}
+
+
 void recordData(){
     clearScreen();
 
-    print("Measuring temperature each");
+    print("Measuring temperature each ");
     print(FAST_MODE ? "second" : "minute");
-    print(". Press 0 to exit.");
+    print(".\nPress 0 to stop measure.\n\n");
+    spinner_begin();
 
-    int t = time(0);
-    
-    while(indx < DB_MAX){
-        t = time(0);
+    int TIME = FAST_MODE ? 1 : 60;
+    int DAY_MAX = FAST_MODE ? 60 : 1440;
+    int LOOP = 1;
+
+    int dayIndex = 0;
+
+    while(LOOP && indx < DB_MAX && func() != 11){ //press 0 to exit
+        int t = time(0);
+       
         double temp = getTemperature();
-        db[indx] = temp;
-        indx++;
-        while((time(0)-t)/60 < 1){ //waits for time to pass by
-          if(func() == 11){ //if user presses button, exit
-            return;
-          }
-        }
-        //delay_ms(1000*60); //one minute
-    }
-}
+        db[indx] = encode(temp);
 
-void viewLog(){
-    for(int i = 0; i < SUMMARY_MAX; i++){
-        char *str;
-        sprintf(str, "Day %d: Minimum: %l - Max: %l - Average: %l\n", i+1, summary[i].min, summary[i].max, summary[i].average);
-        print(str);
+        //note min/max
+        if(temp < summary[dayIndex].min){
+            summary[dayIndex].min = temp;
+        }
+        else if(temp > summary[dayIndex].max){
+            summary[dayIndex].max = temp;
+        }
+  
+        if((indx+1)%DAY_MAX==0){ //if a "day" has passed, calculate avg
+            double sum = 0;
+            double total = 0;
+            for(int i = dayIndex*DAY_MAX; i < (dayIndex+1)*DAY_MAX; i++){
+                if(db[i] != NULL){
+                    sum += decode(db[i]);
+                    total++;
+                }
+            }
+            summary[dayIndex].average = sum/total;
+            dayIndex++;
+        }
+
+        while((time(0)-t) < TIME){ //waits for time to pass by
+          if(func() == 11){ //if user presses button, exit
+            LOOP = 0;
+            break;
+          }
+          delay_ms(400);
+          spinner();
+        }
+        
+        indx++;
     }
-    print("Press 0 to exit");
-    pollButton(0);
-    currentMode = 0;
+    
+    //indx = 0;
+    spinner_end();
+    print("Measure finished.\n");
+    viewLog();
 }
 
 void findSun(){
@@ -148,7 +203,6 @@ void findSun(){
     print(str);
     
     pollButton(0);
-    currentMode = 0;
 }
 
 void alarm(){
@@ -173,40 +227,12 @@ void alarm(){
     }
 }
 
-void testDB(void){
-    for(int i = 0; i < DB_MAX; i++){
-        db[i] = i;
-    }
-}
-
-void statistik(void){
-    double rmax = -100000.0;
-    double rmin = 1000000.0;
-
-    double lmax = -10000.0;
-    double lmin = 10000.0;
-    //rmax: 2483.000000	rmin: 1684.000000lmax: 2047.000000	lmin: 1791.000000
-    //lmax: 2047.000000	lmin: 1791.000000	rmax: 2165.000000	rmin: 1929.000000
-    while(1){
-        lightMeasure();
-        double a = lightLeft();
-        double b = lightRight();
-
-        if(a < lmin){
-            lmin = a;
-        }
-        if(a > lmax){
-            lmax = a;
-        }
-        if(b > rmax){
-            rmax = b;
-        }
-        if(b < rmin){
-            rmin = b;
-        }
-
-        printf("lmax: %f\tlmin: %f\trmax: %f\trmin: %f\n", lmax, lmin, rmax, rmin);
-    }
+void initSummary(){
+  for(int i = 0; i < SUMMARY_MAX; i++){
+    summary[i].min = DBL_MAX;
+    summary[i].max = -DBL_MAX;
+    summary[i].average = 0;
+  }
 }
 
 void main(void){
@@ -216,10 +242,12 @@ void main(void){
     
     // ledInit();
     // initServo();
-    // initLight();
-    testDB();
 
-    // initTemperature();
+    // initLight();
+
+    initSummary();
+    initTemperature();
+    //testDB();
     
     initScreen();
     clearScreen();
@@ -233,18 +261,23 @@ void main(void){
                 break;
             case 1:
                 recordData();
+                currentMode = 0;
                 break;
             case 2:
                 viewLog();
+                currentMode = 0;
                 break;
             case 3:
                 findSun();
+                currentMode = 0;
                 break;
             case 4:
                 alarm();
+                currentMode = 0;
                 break;
             case 5:
                 FAST_MODE = FAST_MODE^1;
+                currentMode = 0;
                 break;
         }
     }

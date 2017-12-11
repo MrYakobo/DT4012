@@ -1,8 +1,7 @@
-#include <stdio.h>
 #include <math.h>
 
 char encode(double t){
-    int i = (int)t;
+    int i = floor(t);
     int d = round((t-(double)i)*4);
     return (i<<2) + d;
 }
