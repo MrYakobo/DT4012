@@ -636,7 +636,7 @@
                 </option>
                 <option>
                     <name>OOCOutputFile</name>
-                    <state></state>
+                    <state>Lab_2_1.srec</state>
                 </option>
                 <option>
                     <name>OOCCommandLineProducer</name>
@@ -2037,6 +2037,9 @@
     </file>
     <file>
         <name>$PROJ_DIR$\delay.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\encodeTemperature.c</name>
     </file>
     <file>
         <name>$PROJ_DIR$\exceptions.c</name>

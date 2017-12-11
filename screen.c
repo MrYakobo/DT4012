@@ -191,12 +191,17 @@ void printString(char str[]){
     int l = strlen(str);
     for(int i = 0; i < l; i++){
         if(str[i] == '\n'){
-            for(int k = 0; k < 40-(printedCharacters%40); k++)
+            int max = 40-(printedCharacters%40);
+            for(int k = 0; k < max; k++){
                 print_ascii(0);
+                printedCharacters++;
+            }
         }
         else if(str[i] == '\t'){
-            for(int k = 0; k < 4; k++)
+            for(int k = 0; k < 4; k++){
                 print_ascii(0);
+                printedCharacters++;
+            }
         }
         else{
             char c = str[i]-0x20;

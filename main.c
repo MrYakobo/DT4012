@@ -13,7 +13,10 @@
 #include "handlers.h"
 #include "led.h"
 
+#include "encode.h"
+
 #include "test.h"
+#include <time.h>
 
 // #include <stdio.h>
 
@@ -26,10 +29,11 @@ struct Entry {
 /*GLOBALS:*/
 int FAST_MODE = 0;
 int currentMode = 0;
+
 #define DB_MAX 10080
 #define SUMMARY_MAX 7 //day entries
 
-int db[DB_MAX]; //storage of temperature each minute
+char db[DB_MAX]; //storage of temperature each minute
 struct Entry summary[SUMMARY_MAX]; //derived from db: contains summary of each day
 unsigned indx = 0;
 
@@ -91,21 +95,31 @@ double inputDouble(){
 
 
 void mainMenu(){
+    clearScreen();
     printMenu();
     currentMode = pollInput();
 }
 
 void recordData(){
     clearScreen();
-    char *str;
-    sprintf(str, "Measuring temperature each %s%s", FAST_MODE ? "second" : "minute", ". Press 0 to exit.");
-    print(str);
 
+    print("Measuring temperature each");
+    print(FAST_MODE ? "second" : "minute");
+    print(". Press 0 to exit.");
+
+    int t = time(0);
+    
     while(indx < DB_MAX){
+        t = time(0);
         double temp = getTemperature();
         db[indx] = temp;
         indx++;
-        delay(1000*60); //one minute
+        while((time(0)-t)/60 < 1){ //waits for time to pass by
+          if(func() == 11){ //if user presses button, exit
+            return;
+          }
+        }
+        //delay_ms(1000*60); //one minute
     }
 }
 
@@ -201,20 +215,22 @@ void main(void){
     *AT91C_PMC_PCER = 0x8007800;      //Clock pin TC0,PIOA,PIOB,PIOC,PIOD
     
     // ledInit();
-    // initScreen();
-    // initKeypad();
     // initServo();
     // initLight();
+    testDB();
+
     // initTemperature();
     
     initScreen();
     clearScreen();
 
+    initKeypad();
+
     while(1){
         switch(currentMode){
             case 0:
                 mainMenu();
-            break;
+                break;
             case 1:
                 recordData();
                 break;

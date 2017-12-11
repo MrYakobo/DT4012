@@ -54,3 +54,20 @@ void testScreen(void){
 void testTemperature(void){
   printf("%f\n", getTemperature());
 }
+
+void testEncoding(void){
+   double test[] = {29.22, 117.0, 29.25, 11.0, 44.0, 11.0, 29.20, 117.0, 29.25};
+
+  for(int i = 0; i < sizeof(test)/sizeof(test[0]); i+=3){
+      char enc = encode(test[i]);
+      double dec = decode(enc);
+
+      if((double)enc != test[i+1]){
+        printf("Encoding of %f failed: Expected %d, got %d\n", test[i], (char)test[i+1], enc);
+      }
+      else if(dec != test[i+2]){
+        printf("Decoding failed: Expected %f, got %f\n", test[i+2], dec);
+      }
+  } 
+  return 0;
+}

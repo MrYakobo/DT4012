@@ -24,6 +24,7 @@ void initKeypad(void){
 }
 
 int func(void){
+  initKeypad();
   
   int COLS[] = {9,8,7};
   int ROWS[] = {2,3,4,5};
