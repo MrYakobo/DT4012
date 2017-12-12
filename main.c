@@ -18,6 +18,7 @@
 #include "test.h"
 #include <time.h>
 #include <float.h>
+#include <math.h>
 
 // #include <stdio.h>
 
@@ -65,8 +66,9 @@ void pollButton(int btn){
     } //here, val is btn
 }
 
-double inputDouble(){
-    print("*: Set decimal place    #: Done\n");
+/*
+double inputDouble2(){
+    print("*: Set decimal place\t#: Done\n");
     char *str;
     int decimalPlace = 0; //flag to make sure that double decimal places are not allowed
 
@@ -74,7 +76,7 @@ double inputDouble(){
         int input = pollInput();
         if(input == 12){break;}
         else if(input == 11){
-            sprintf(str, "%s%s", "0");
+            sprintf(str, "%s%s", str, "0");
             print("0");
         }
         else if(input == 10 && !decimalPlace){
@@ -94,8 +96,74 @@ double inputDouble(){
     double d;
     sscanf(str, "%lf", &d);
     return d;
-}
+}*/
 
+double inputDouble(){
+    print("*: Negative input\t#: Positive input:\n");
+    int signInput = 0;
+    while(signInput != 10 && signInput != 12){
+        signInput = pollInput();
+    }
+    delay_ms(3000);
+    //0 : 1 => 0 : 2 => -1 : 1
+    int sign = ((signInput & (1<<2))>>1)-1;
+    print("Ok! You chose ");
+    print(sign == 1 ? "positive" : "negative");
+    print(" input.\n");
+    print("*: Set decimal place\t#: Done\n\n");
+    int arr[4] = {-1, -1, -1, -1};
+    
+    int decimalPlace = -1; //index, börjar på 0
+    int index = 0;
+
+    print(sign == 1 ? "" : "-");
+
+    while(index <= 4){
+        int input = pollInput();
+        if(input == 12){
+            delay_ms(2000);
+            break;
+        }
+        else if(input == 11){
+            arr[index] = 0;
+            print("0");
+        }
+        else if(input == 10){
+            if(decimalPlace > -1)
+                continue;
+            decimalPlace = index;
+            print(".");
+        }
+        else{
+            arr[index] = input;
+            printNumber(input);
+        }
+        delay_ms(2000);
+        index++;
+    }
+    if(index == 0){ //user didn't input anything, probably want to exit
+        return -1.0;
+    }
+
+    /*
+        [1,2,5,0]
+        decimalPlace: 3
+
+        [9,NULL,NULL,NULL]
+        decimalPlace: 0
+    */
+    double total = 0.0;
+
+    decimalPlace = decimalPlace > -1 ? decimalPlace : index;
+
+    for(int i = 0; i < 4; i++){
+        if(arr[i] != -1){
+            total += arr[i]*pow(10.0, decimalPlace-i-1);
+        }
+    }
+    
+    return total*sign;
+}
 
 void mainMenu(){
     clearScreen();
@@ -104,6 +172,7 @@ void mainMenu(){
 }
 
 void viewLog(){
+    clearScreen();
     print("\n");
     print("Day | Min  | Max  | Avg\n");
     print("----------------------\n");
@@ -207,23 +276,48 @@ void findSun(){
 
 void alarm(){
     clearScreen();
-    print("Set max temperature: ");
-    double max = inputDouble();
-    printNumber(max);
+    print("Set max temperature:\n");
+    // double max = inputDouble();
+    double max = 22.0;
 
-    print("Set min temperature: ");
-    double min = inputDouble();
-    printNumber(min);
+    print("\nSet min temperature:\n");
+    // double min = inputDouble();
+    double min = -10.0;
 
-    double temp = 0.0;
-    print("\nOk! The LED will flash violently when the temperature reaches any of max or min. Press 0 to exit.");
+    // print("\nOk! The LED will flash violently when the temperature reaches any of max or min. Press 0 to exit.");
+    clearScreen();
 
+    print("Max: ");
+    printDouble(max);
+    print("\tMin: ");
+    printDouble(min);
+
+    print("\nPress 0 to exit.");
+
+    print("\nCurrent temperature: ");
     while(func() != 11) { //user pressed 0
-        temp = getTemperature();
+        double temp = getTemperature();
+        print_double_persistent(temp);
         if(temp > max || temp < min){
-            ledToggle();
-            delay(100);
+            decrementPointer(21);
+            if(temp > max){
+                print("Max");
+            }
+            else{
+                print("Min");
+            }
+            print(" temperature detected!\nPress 0 to restart.");
+            while(func() != 11){
+                ledToggle();
+                delay_ms(1000);
+            }
+
+            ledOff();
+            decrementPointer(59);
+            print("\nCurrent temperature: ");
+            delay_ms(4000);
         }
+        delay_ms(1000);
     }
 }
 
@@ -240,7 +334,6 @@ void main(void){
 
     *AT91C_PMC_PCER = 0x8007800;      //Clock pin TC0,PIOA,PIOB,PIOC,PIOD
     
-    // ledInit();
     // initServo();
 
     // initLight();
@@ -253,6 +346,11 @@ void main(void){
     clearScreen();
 
     initKeypad();
+    initLight();
+
+    ledInit();
+
+    // inputDouble();
 
     while(1){
         switch(currentMode){

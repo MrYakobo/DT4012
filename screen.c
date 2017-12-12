@@ -96,9 +96,14 @@ void Write_Data_2_Display(unsigned char Data){
   *AT91C_PIOC_ODR = 0x3FC;  //make databus as input
 }
 
-void setPointer(int h){
-  Write_Data_2_Display(h);
-  Write_Data_2_Display(h);
+void setPointer(int h){ //61 => x: 20, y: 2
+  int x = h%40;
+  int y = (h-x)/40;
+  
+  //h: x+y*40 => y = (h-x)/40, x: h%40
+
+  Write_Data_2_Display(x);
+  Write_Data_2_Display(y);
   Write_Command_2_Display(0x24);
 }
 
@@ -253,3 +258,24 @@ void printDouble(double d){
     printString(str);
 }
 
+void decrementPointer(int n){
+    for(int i = 0; i < n; i++) {
+        Write_Command_2_Display(0xC3);
+    }
+    printedCharacters -= n;
+}
+
+void print_double_persistent(double d){
+    printDouble(d);
+    decrementPointer(5);
+}
+
+void printAxes(){
+  for(int x = 0; x < 40; x++){
+        printNumber(x%10);
+  }
+  for(int y = 0; y < 20; y++){
+      printNumber((y+1)%10);
+      print("\n");
+  }
+}

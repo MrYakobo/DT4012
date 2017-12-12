@@ -12,6 +12,7 @@ void ledOff(void){
 }
 
 int isOn = 0;
+
 void ledToggle(void){
     if(isOn) ledOff();
     else ledOn();

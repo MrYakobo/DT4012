@@ -15,5 +15,7 @@ void spinner_begin();
 
 void printDouble(double d);
 void printNumber(int n);
+void print_double_persistent(double d);
+void decrementPointer(int n);
 
 #endif
