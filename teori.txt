@@ -1,0 +1,7 @@
+Minuter på en vecka: 10080
+Fast mode ska vara 60 ggr snabbare.
+
+Normal mode: 10080 minuter
+Fast mode: 10080/60 = 168 minuter = 2.8 timmar
+
+Fast mode klarar av "1 dag" på 24 minuter.

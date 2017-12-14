@@ -46,8 +46,7 @@ void print(char str[]){
 void printMenu(){
     clearScreen();
     print("Welcome to the Weather Station 0.1\nChoose one of the following:\n1) Record data\n2) View logged data\n3) Find the sun\n4) Alarm at high/low temperatures\n5) Toggle modes (current mode: ");
-    print(FAST_MODE ? "FAST" : "NORMAL");
-    print(")");
+    print(FAST_MODE ? "FAST)  " : "NORMAL)");
 }
 
 //waits until user inputs something
@@ -66,37 +65,6 @@ void pollButton(int btn){
     } //here, val is btn
 }
 
-/*
-double inputDouble2(){
-    print("*: Set decimal place\t#: Done\n");
-    char *str;
-    int decimalPlace = 0; //flag to make sure that double decimal places are not allowed
-
-    while(1){ //while input != #
-        int input = pollInput();
-        if(input == 12){break;}
-        else if(input == 11){
-            sprintf(str, "%s%s", str, "0");
-            print("0");
-        }
-        else if(input == 10 && !decimalPlace){
-            sprintf(str, "%s%s", ".");
-            print(".");
-            decimalPlace = 1;
-        }
-        else {
-            char c = input+0x30;;
-            char *pChar = malloc(sizeof(char));
-            *pChar = c;
-            sprintf(str, "%s%s", c);
-            print(pChar);
-        }
-    }
-
-    double d;
-    sscanf(str, "%lf", &d);
-    return d;
-}*/
 
 double inputDouble(){
     print("*: Negative input\t#: Positive input:\n");
@@ -109,8 +77,7 @@ double inputDouble(){
     int sign = ((signInput & (1<<2))>>1)-1;
     print("Ok! You chose ");
     print(sign == 1 ? "positive" : "negative");
-    print(" input.\n");
-    print("*: Set decimal place\t#: Done\n\n");
+    print(" input.\n*: Set decimal place\t#: Done\n\n");
     int arr[4] = {-1, -1, -1, -1};
     
     int decimalPlace = -1; //index, börjar på 0
@@ -129,10 +96,11 @@ double inputDouble(){
             print("0");
         }
         else if(input == 10){
-            if(decimalPlace > -1)
-                continue;
-            decimalPlace = index;
-            print(".");
+          if(decimalPlace == -1){
+              decimalPlace = index;
+              print(".");
+          }
+          continue;
         }
         else{
             arr[index] = input;
@@ -165,32 +133,57 @@ double inputDouble(){
     return total*sign;
 }
 
+double average_range(int low, int high){
+    double sum = 0.0;
+    double total = 0.0;
+
+    for(int i = low; i < high; i++){
+        if(db[i] != NULL){
+            sum += decode(db[i]);
+            total++;
+        }
+    }
+    return sum/total;
+}
+
+void chooseMode(){
+  int input = 6;
+  while(input > 5)
+    input = pollInput();
+  currentMode = input;
+}
+
 void mainMenu(){
     clearScreen();
     printMenu();
-    currentMode = pollInput();
+    chooseMode();
 }
 
-void viewLog(){
-    clearScreen();
-    print("\n");
-    print("Day | Min  | Max  | Avg\n");
-    print("----------------------\n");
+void printLogHeader(){
+    print("\nDay | Min  | Max  | Avg\n");
+    print("------------------------\n");
+}
 
+void viewDayLog(int i){
+    print("  ");
+    printNumber(i+1);
+    print(" | ");
+    printDouble(summary[i].min);
+    print("| ");
+    printDouble(summary[i].max);
+    print("|");
+    printDouble(summary[i].average);
+    print("|\n");
+}
+
+void viewWeekLog(){
+    clearScreen();
+    printLogHeader();
     for(int i = 0; i < SUMMARY_MAX; i++){
         if(summary[i].average == 0){
             break;
         }
-    
-        print("  ");
-        printNumber(i+1);
-        print(" | ");
-        printDouble(summary[i].max);
-        print("| ");
-        printDouble(summary[i].min);
-        print("|");
-        printDouble(summary[i].average);
-        print("|\n");
+        viewDayLog(i);
     }
 
     print("\nPress 0 to exit");
@@ -208,12 +201,34 @@ void recordData(){
     spinner_begin();
 
     int TIME = FAST_MODE ? 1 : 60;
-    int DAY_MAX = FAST_MODE ? 60 : 1440;
-    int LOOP = 1;
+    
+    int DAY_MAX = 1440;
+    int CONTINUE = 1;
 
     int dayIndex = 0;
 
-    while(LOOP && indx < DB_MAX && func() != 11){ //press 0 to exit
+
+    int FILL_INSTANTLY = 0;
+    char FILL[] = "OPSQRT";
+
+    printLogHeader();
+
+    if(FILL_INSTANTLY){
+        for(int i = 0; i < DB_MAX; i++){
+            db[i] = FILL[i%6];
+            summary[dayIndex].min = 15.15;
+            summary[dayIndex].max = 22.0;
+
+            if((i+1)%DAY_MAX==0){ //if a "day" has passed, calculate avg
+                summary[dayIndex].average = average_range(dayIndex*DAY_MAX, (dayIndex+1)*DAY_MAX);
+                viewDayLog(dayIndex);
+                dayIndex++;
+            }
+        }
+    }
+    
+    else{
+    while(CONTINUE && indx < DB_MAX && func() != 11){ //press 0 to exit
         int t = time(0);
        
         double temp = getTemperature();
@@ -221,28 +236,27 @@ void recordData(){
 
         //note min/max
         if(temp < summary[dayIndex].min){
+            if(temp < 17){
+                printf("Nu e de kallt. %.2f grader, index %d", temp, indx);
+            }
             summary[dayIndex].min = temp;
         }
         else if(temp > summary[dayIndex].max){
+            if(temp > 23){
+                printf("Nu e de varmt. %.2f grader, index %d", temp, indx);
+            }
             summary[dayIndex].max = temp;
         }
   
         if((indx+1)%DAY_MAX==0){ //if a "day" has passed, calculate avg
-            double sum = 0;
-            double total = 0;
-            for(int i = dayIndex*DAY_MAX; i < (dayIndex+1)*DAY_MAX; i++){
-                if(db[i] != NULL){
-                    sum += decode(db[i]);
-                    total++;
-                }
-            }
-            summary[dayIndex].average = sum/total;
+            summary[dayIndex].average = average_range(dayIndex*DAY_MAX, (dayIndex+1)*DAY_MAX);
+            viewDayLog(dayIndex);
             dayIndex++;
         }
 
         while((time(0)-t) < TIME){ //waits for time to pass by
           if(func() == 11){ //if user presses button, exit
-            LOOP = 0;
+            CONTINUE = 0;
             break;
           }
           delay_ms(400);
@@ -251,11 +265,13 @@ void recordData(){
         
         indx++;
     }
-    
-    //indx = 0;
     spinner_end();
-    print("Measure finished.\n");
-    viewLog();
+    }
+    //indx = 0;
+
+    print("Measure finished.\nPress 0 to exit.");
+    delay_ms(1000);
+    pollButton(11);
 }
 
 void findSun(){
@@ -271,18 +287,18 @@ void findSun(){
     sprintf(str, "Found sun! It was at %d degrees. Press 0 to exit.", delta*60);
     print(str);
     
-    pollButton(0);
+    pollButton(11);
 }
 
 void alarm(){
     clearScreen();
     print("Set max temperature:\n");
-    // double max = inputDouble();
-    double max = 22.0;
+    double max = inputDouble();
+    // double max = 22.0;
 
     print("\nSet min temperature:\n");
-    // double min = inputDouble();
-    double min = -10.0;
+    double min = inputDouble();
+    // double min = -10.0;
 
     // print("\nOk! The LED will flash violently when the temperature reaches any of max or min. Press 0 to exit.");
     clearScreen();
@@ -306,7 +322,7 @@ void alarm(){
             else{
                 print("Min");
             }
-            print(" temperature detected!\nPress 0 to restart.");
+            print(" temperature detected! Press 0 to restart.");
             while(func() != 11){
                 ledToggle();
                 delay_ms(1000);
@@ -362,7 +378,7 @@ void main(void){
                 currentMode = 0;
                 break;
             case 2:
-                viewLog();
+                viewWeekLog();
                 currentMode = 0;
                 break;
             case 3:
@@ -374,8 +390,10 @@ void main(void){
                 currentMode = 0;
                 break;
             case 5:
+                decrementPointer(FAST_MODE ? 7 : 7);
                 FAST_MODE = FAST_MODE^1;
-                currentMode = 0;
+                print(FAST_MODE ?  "FAST)  ":"NORMAL)");
+                chooseMode();
                 break;
         }
     }
