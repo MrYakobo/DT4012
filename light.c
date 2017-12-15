@@ -89,25 +89,10 @@ void pollLight(void){
 }
 
 
-//lmax: 2047.000000	lmin: 1791.000000
-double lightLeft(void){
-    //gör lite fancy ADC_Handler stuffs här med globala variabler
-    // return 1.0-((LIGHT_A-1791.0)/256.0);
+int lightLeft(void){
     return LIGHT_A;
 }
 
-//rmax: 2483.000000	rmin: 1684.000000
-double lightRight(void){
-    //samma sak här
-    // return (LIGHT_B-1684.0)/799.0;
+int lightRight(void){
     return LIGHT_B;
-}
-
-double lightDelta(){
-    lightMeasure();
-    // double l = lightLeft();
-    // double r = lightRight();
-    // return (l-r)/sqrt(l*l+r*r); //divide by length to get a normalized value between 1 and -1
-    // return (LIGHT_B-LIGHT_A)/sqrt(pow(LIGHT_A,2)+pow(LIGHT_B,2));
-    return lightRight()-lightLeft();
 }

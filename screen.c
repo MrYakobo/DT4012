@@ -219,6 +219,9 @@ void printString(char str[]){
                 printedCharacters++;
             }
         }
+        else if(str[i] == '\p'){
+            printString("Tjenis penis");
+        }
         else{
             char c = str[i]-0x20;
             print_ascii((int)c);

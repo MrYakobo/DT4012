@@ -18,14 +18,8 @@ void TC0_Handler(void){
    //*AT91C_TC0_IER = (1<<6); //enable again
 }
 
-int lightValue = 0;
-
 void ADC_Handler(void){
   *AT91C_ADCC_IDR = (1<<24);
   *AT91C_ADCC_SR; //read status register
   ADC_READY = 1;
-  int light1 = *AT91C_ADCC_CDR1;
-  int light2 = *AT91C_ADCC_CDR2;
-  
-  lightValue = light2 - light1;
 }

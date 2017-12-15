@@ -274,6 +274,7 @@ void recordData(){
     pollButton(11);
 }
 
+/*
 void findSun(){
     clearScreen();
     print("Trying to find sun...");
@@ -287,6 +288,36 @@ void findSun(){
     sprintf(str, "Found sun! It was at %d degrees. Press 0 to exit.", delta*60);
     print(str);
     
+    pollButton(11);
+}
+*/
+void findSun(){
+    clearScreen();
+    print("Trying to find sun...");
+
+    int maxLight = 0;
+    int maxDegree = 0;
+    for(int i = 0; i <= 12; i++){
+        turnServo(i*10);
+        lightMeasure();
+
+        int A = lightLeft();
+        int B = lightRight();
+        int val = A+B;
+        printf("%d\t%d\n", A, B);
+        if(val > maxLight){
+            maxLight = val;
+            maxDegree = i;
+        }
+        delay_ms(3000);
+    }
+    print("\nYes! The maximum light was found at ");
+    printNumber(maxDegree);
+    print(" degrees, with a light value at ");
+    printNumber(maxLight);
+
+    turnServo(maxDegree*10);
+    print("\nPress 0 to exit.");
     pollButton(11);
 }
 
@@ -349,10 +380,11 @@ void main(void){
     SystemInit();
 
     *AT91C_PMC_PCER = 0x8007800;      //Clock pin TC0,PIOA,PIOB,PIOC,PIOD
-    
-    // initServo();
 
-    // initLight();
+    initLight();
+    // testLight();
+    
+    initServo();
 
     initSummary();
     initTemperature();
@@ -362,11 +394,8 @@ void main(void){
     clearScreen();
 
     initKeypad();
-    initLight();
 
     ledInit();
-
-    // inputDouble();
 
     while(1){
         switch(currentMode){

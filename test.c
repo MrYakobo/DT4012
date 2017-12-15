@@ -1,6 +1,8 @@
 #include "keypad.h"
 #include "screen.h"
 #include "temperature.h"
+#include "servo.h"
+#include "light.h"
 
 void testKeypadOnScreen(void){
   initKeypad();
@@ -26,13 +28,17 @@ void testKeypadOnScreen(void){
 }
 
 void testServoWithKeypad(void){
-  initKeypad();
-  int res;
-  for(int i = 0; i < 1000; i++){
-    res = func();
-  }
+  int res = func();
   if(res != 0){
     turnServo(res*10);
+  }
+  delay_ms(10000);
+}
+
+void testServoRange(void){
+  while(1){
+    testServo();
+    delay_ms(10000);
   }
 }
 
@@ -119,5 +125,15 @@ void testLinebreak(){
   print("| ");
   printDouble(10.19);
   print("| ");
+}
 
+void testLight(){
+  initLight();
+  while(1){
+    lightMeasure();
+    int lightA = lightLeft();
+    int lightB = lightRight();
+    printf("%d\t%d\n", lightA, lightB);
+    delay_ms(8000);
+  }
 }

@@ -3,10 +3,12 @@
 
 void initLight(void);
 void pollLight(void);
-double lightLeft(void);
-double lightRight(void);
+int lightLeft(void);
+int lightRight(void);
 double lightDelta(void);
 void lightMeasure(void);
+void lightMeasureLeft(void);
+void lightMeasureRight(void);
 
 extern int ADC_READY;
 

@@ -6,5 +6,6 @@ void testServoWithKeypad(void);
 void testKeypad(void);
 void testScreen(void);
 void testTemperature(void);
+void testLight(void);
 
 #endif

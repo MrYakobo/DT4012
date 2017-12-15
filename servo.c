@@ -8,7 +8,7 @@ int NEUTRAL = 4000; //1.5/20*255 0 deg
 int RIGHT = 6000; ///2.3/20*255 60 deg
 
 void initServo(void){
-  *AT91C_PMC_PCER1 = 0X10; //PWM ENABLE
+  *AT91C_PMC_PCER1 = 0x10; //PWM ENABLE
   *AT91C_PIOB_PDR = 1<<17; 
   *AT91C_PIOB_ABMR = 1<<17;
   //*AT91C_PIOB_PPUDR = 1<<17;
@@ -19,6 +19,13 @@ void initServo(void){
   *AT91C_PWMC_CH1_CDTYR = LEFT;
 }
 
-void turnServo(double degree){
-  *AT91C_PWMC_CH1_CDTYUPDR = (int)(2000+2000/60*degree);
+void turnServo(int degree){
+  int val = 2000+(2000/60)*degree;
+  *AT91C_PWMC_CH1_CDTYUPDR = val;
+}
+
+int d = 0;
+void testServo(){
+  *AT91C_PWMC_CH1_CDTYUPDR = 2000*(d+1);
+  d = (d+1)%3;
 }

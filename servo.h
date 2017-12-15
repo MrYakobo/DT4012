@@ -2,6 +2,7 @@
 #define SERVO
 
 void initServo(void);
-void turnServo(double degree);
+void turnServo(int degree);
+void testServo(void);
 
 #endif
